@@ -23,7 +23,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<!-- com.smarthome.flat.svc.Main -->
-		<start-class>com.smarthome.flat.svc.controller.BMP180</start-class>
+		<start-class>com.smarthome.flat.svc.Main</start-class>
 	</properties>
 
 	<dependencies>
