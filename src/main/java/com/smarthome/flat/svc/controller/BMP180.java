@@ -5,12 +5,16 @@ import com.pi4j.io.i2c.I2CDevice;
 import com.pi4j.io.i2c.I2CFactory;
 
 import com.pi4j.system.SystemInfo;
+import com.smarthome.flat.svc.sensors.TemperatureHumidity;
 import com.smarthome.flat.svc.sensors.utils.EndianReaders;
 
 import java.io.IOException;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /*
@@ -70,6 +74,7 @@ public class BMP180 {
 	private int cal_MD = 0;
 
 	private static boolean verbose = "true".equals(System.getProperty("bmp180.verbose", "false"));
+	private static final Logger log = LoggerFactory.getLogger(BMP180.class);
 
 	private I2CBus bus;
 	private I2CDevice bmp180;
@@ -85,18 +90,22 @@ public class BMP180 {
 			bus = I2CFactory.getInstance(I2CBus.BUS_1); // Depends on the RasPI version
 			if (verbose) {
 				System.out.println("Connected to bus. OK.");
+				log.debug("Connected to bus. OK.");
 			}
 			// Get device itself
 			bmp180 = bus.getDevice(address);
 			if (verbose) {
 				System.out.println("Connected to device. OK.");
+				log.debug("Connected to device. OK.");
 			}
 			try {
 				this.readCalibrationData();
 			} catch (Exception ex) {
+				log.error("ERROR : " + ex.getMessage());
 				ex.printStackTrace();
 			}
 		} catch (IOException e) {
+			log.error("ERROR : " + e.getMessage());
 			System.err.println(e.getMessage());
 		}
 	}
@@ -148,6 +157,7 @@ public class BMP180 {
 		int raw = readU16(BMP180_TEMPDATA);
 		if (verbose) {
 			System.out.println("DBG: Raw Temp: " + (raw & 0xFFFF) + ", " + raw);
+			log.debug("DBG: Raw Temp: " + (raw & 0xFFFF) + ", " + raw);
 		}
 		return raw;
 	}
@@ -170,6 +180,7 @@ public class BMP180 {
 		int raw = ((msb << 16) + (lsb << 8) + xlsb) >> (8 - this.mode);
 		if (verbose) {
 			System.out.println("DBG: Raw Pressure: " + (raw & 0xFFFF) + ", " + raw);
+			log.debug("DBG: Raw Pressure: " + (raw & 0xFFFF) + ", " + raw);
 		}
 		return raw;
 	}
@@ -190,6 +201,7 @@ public class BMP180 {
 		temp = ((B5 + 8) >> 4) / 10.0f;
 		if (verbose) {
 			System.out.println("DBG: Calibrated temperature = " + temp + " C");
+			log.debug("DBG: Calibrated temperature = " + temp + " C");
 		}
 		return temp;
 	}
@@ -305,6 +317,7 @@ public class BMP180 {
 		altitude = 44_330.0 * (1.0 - Math.pow(pressure / standardSeaLevelPressure, 0.1903));
 		if (verbose)
 			System.out.println("DBG: Altitude = " + altitude);
+		    log.debug("DBG: Altitude = " + altitude);
 		return altitude;
 	}
 
@@ -338,10 +351,15 @@ public class BMP180 {
 		System.out.println("Temperature: " + NF.format(temp) + " C");
 		System.out.println("Pressure   : " + NF.format(press / 100) + " hPa");
 		System.out.println("Altitude   : " + NF.format(alt) + " m");
+	    log.debug("Temperature: " + NF.format(temp) + " C");
+	    log.debug("Pressure   : " + NF.format(press / 100) + " hPa");
+	    log.debug("Altitude   : " + NF.format(alt) + " m");
 		// Bonus : CPU Temperature
 		try {
 			System.out.println("CPU Temperature   :  " + SystemInfo.getCpuTemperature());
 			System.out.println("CPU Core Voltage  :  " + SystemInfo.getCpuVoltage());
+		    log.debug("CPU Temperature   :  " + SystemInfo.getCpuTemperature());
+		    log.debug("CPU Core Voltage  :  " + SystemInfo.getCpuVoltage());
 		} catch (InterruptedException ie) {
 			ie.printStackTrace();
 		} catch (IOException e) {
