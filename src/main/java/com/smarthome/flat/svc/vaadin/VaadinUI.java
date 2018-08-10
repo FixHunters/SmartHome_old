@@ -1,5 +1,9 @@
 package com.smarthome.flat.svc.vaadin;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.smarthome.flat.svc.controller.ApplicationController;
+import com.smarthome.flat.svc.model.Sensors;
 import com.smarthome.flat.svc.vaadin.menu.DefaultView;
 import com.smarthome.flat.svc.vaadin.menu.NotificationView;
 import com.smarthome.flat.svc.vaadin.menu.ScenesView;
@@ -17,8 +21,12 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.themes.ValoTheme;
 
 @SpringUI(path = "/smartHome")
-@PushStateNavigation
 public class VaadinUI extends UI {
+	
+	@Autowired
+	private ApplicationController controller;
+	
+	private Sensors sensors = new Sensors();
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
@@ -52,6 +60,21 @@ public class VaadinUI extends UI {
         navigator.addView("rooms", RoomsView.class);
         navigator.addView("status", StatusView.class);
         navigator.addView("notifications", NotificationView.class);
+        
+        menu.addComponent(new Button("Click save data!",
+			    event -> saveData()));
+        
+        menu.addComponent(new Button("Click select data!",
+			    event -> controller.findAllSensorsData()));
+    }
+    
+    private void saveData() {
+    	sensors.setId(10);
+    	sensors.setHumidity("999");
+    	sensors.setSoil_moisture("989");
+    	sensors.setTemperature("59");
+    	//controller.addSenorData(sensors);
+    	controller.insertMeasuredData(sensors);
     }
 
 }

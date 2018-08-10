@@ -1,20 +1,17 @@
 package com.smarthome.flat.svc.controller;
 
-import com.pi4j.io.i2c.I2CBus;
-import com.pi4j.io.i2c.I2CDevice;
-import com.pi4j.io.i2c.I2CFactory;
-
-import com.pi4j.system.SystemInfo;
-import com.smarthome.flat.svc.sensors.TemperatureHumidity;
-import com.smarthome.flat.svc.sensors.utils.EndianReaders;
-
 import java.io.IOException;
-
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.pi4j.io.i2c.I2CBus;
+import com.pi4j.io.i2c.I2CDevice;
+import com.pi4j.io.i2c.I2CFactory;
+import com.pi4j.system.SystemInfo;
+import com.smarthome.flat.svc.sensors.utils.EndianReaders;
 
 
 /*

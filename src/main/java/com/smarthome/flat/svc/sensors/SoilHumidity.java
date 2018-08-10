@@ -1,9 +1,5 @@
 package com.smarthome.flat.svc.sensors;
 
-import java.io.IOException;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,12 +10,9 @@ import com.pi4j.io.gpio.PinPullResistance;
 import com.pi4j.io.gpio.RaspiPin;
 import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
 import com.pi4j.io.gpio.event.GpioPinListenerDigital;
-import com.pi4j.system.SystemInfo;
-import com.smarthome.flat.svc.controller.BMP180;
-import com.smarthome.flat.svc.controller.TppsApiController;
 
 /**
- * This example code demonstrates how to perform simple state
+ * This example code demonstrates how to perform sensor state
  * control of a GPIO pin on the Raspberry Pi.
  *
  * @author Jan Pojezdala
@@ -28,20 +21,23 @@ public class SoilHumidity {
 	
 	private static final Logger log = LoggerFactory.getLogger(SoilHumidity.class);
 
-	 public static void main() throws InterruptedException {
+	 public  void main() throws InterruptedException {
 	        System.out.println("<--Pi4J--> GPIO Listen Example ... started.");
 
 	        // create gpio controller
 	        final GpioController gpio = GpioFactory.getInstance();
 
 	        // provision gpio pin #02 as an input pin with its internal pull down resistor enabled
-	        final GpioPinDigitalInput myButton = gpio.provisionDigitalInputPin(RaspiPin.GPIO_02, PinPullResistance.PULL_DOWN);
+	        final GpioPinDigitalInput inputPin = gpio.provisionDigitalInputPin(RaspiPin.GPIO_29, PinPullResistance.PULL_DOWN);
 
 	        // set shutdown state for this input pin
-	        myButton.setShutdownOptions(true);
+	        inputPin.setShutdownOptions(true);
 
+	     // get input state from pin 2
+	        boolean input_value = inputPin.isHigh();
+	        System.out.println(" --> GPIO INPUT STATE : " + input_value);
 	        // create and register gpio pin listener
-	        myButton.addListener(new GpioPinListenerDigital() {
+	        inputPin.addListener(new GpioPinListenerDigital() {
 	            @Override
 	            public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
 	                // display pin state on console

@@ -11,7 +11,7 @@ import com.pi4j.system.SystemInfo;
 import com.smarthome.flat.svc.controller.BMP180;
 
 /**
- * This example code demonstrates how to perform simple state
+ * This example code demonstrates how to perform sensor state
  * control of a GPIO pin on the Raspberry Pi.
  *
  * @author Jan Pojezdala
