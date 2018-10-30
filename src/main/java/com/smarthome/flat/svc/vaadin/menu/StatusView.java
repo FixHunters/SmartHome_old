@@ -7,9 +7,9 @@ import com.vaadin.ui.Label;
 /**
  * @author Jan Pojezdala
  */
-public class StatusView extends Composite implements View {
+public class StatusView /*extends Composite*/ implements View {
 
     public StatusView() {
-        setCompositionRoot(new Label("This is view STATUS"));
+        //setCompositionRoot(new Label("STATUS"));
     }
 }
