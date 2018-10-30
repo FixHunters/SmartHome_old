@@ -35,5 +35,9 @@ public class ApplicationController {
 	public void findAllSensorsData() {
 		getDbSupport().findAllSensorsData();
 	}
+	
+	public String findAllData() {
+		return getDbSupport().findAllSensorsData().toString();
+	}
 
 }

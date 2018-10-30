@@ -1,1 +1,34 @@
-Please add your static resources here
+*** Maven ***
+- vytvorenie kniznice: mv3 package
+
+*** Run ***
+- ak chces spravit package jar a spustit ho potrebujes mat v nom main metodu s args
+	a nastavenu tuto metodu v pom.xml aby sa s spustila
+java -jar -Dspring.profiles.active=local demo-0.0.1-SNAPSHOT.jar	
+	
+*** Raspberry I2C ***
+- sudo i2cdetect -y 1 : zistenie ci je nejake zariadenie adresovane na I2C	
+	pri BMP180 je aby tam bola 77 ak je vsetko OK
+	
+*** Postgresql
+1,- sudo apt install postgresql libpq-dev postgresql-client postgresql-client-common -y
+2,- sudo su postgres - zapnutie postgres konzoly
+- pre zrusenie autorizacie uzivatela do DB bola treba zmenit peer na trust tam kde je host ...127.0.0.1
+	sudo nano /etc/postgresql/9.6/main/pg_hba.conf
+- sudo service postgresql [command]	
+https://opensource.com/article/17/10/set-postgres-database-your-raspberry-pi
+		
+*** Raspberry ***	
+*PRVY BOOT
+1, pri pripojenie sa k wifi ne nutne nastavit WIFI Localization v preferences
+2, sudo apt-get update && sudo apt-get upgrade
+	toto zadam hned po prvom boote neskor to uz hadam nepouzijem kvoli konzistentnosti systemu
+	
+- pred stiahnutim noveho programu je dobre spravit update systemu moze to koli tomu padat
+	sudo apt-get update	
+	
+**** SENSORS ***
+Rain
+https://raspi.tv/2017/make-a-rain-alert-system-with-raspberry-pi	
+	
+TODO fixunit wiring pi kniznicu pre novy procesor BCM2835
