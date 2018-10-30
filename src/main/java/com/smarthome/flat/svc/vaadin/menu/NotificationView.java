@@ -10,14 +10,7 @@ import com.vaadin.ui.Label;
  */
 public class NotificationView extends Composite implements View {
 
-	TemperatureHumidity temperatureHumidity = new TemperatureHumidity();
-    public NotificationView() {
-        setCompositionRoot(new Label("This is view NOTIFICATIONS"));
-        try {
-			temperatureHumidity.main();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    }
+	public NotificationView() {
+		setCompositionRoot(new Label("This is view NOTIFICATIONS"));
+	}
 }

@@ -22,11 +22,15 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<!-- com.smarthome.flat.svc.Main -->
+		<!-- DEFAULT com.smarthome.flat.svc.Main -->
 		<start-class>com.smarthome.flat.svc.Main</start-class>
 	</properties>
 
 	<dependencies>
+	<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-web</artifactId>
+</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
@@ -91,7 +95,7 @@
 		<dependency>
 		    <groupId>com.pi4j</groupId>
 		    <artifactId>pi4j-core</artifactId>
-		    <version>1.1</version>
+		    <version>1.2-SNAPSHOT</version>
 		</dependency>
 		
 				<!-- Swagger je tu kvoli volaniu API-->
@@ -109,8 +113,32 @@
 	    <version>1.3.1</version>
 	</dependency>
 	
+	<!-- JETTY -->
+<dependency>
+    <groupId>org.eclipse.jetty</groupId>
+    <artifactId>jetty-client</artifactId>
+    <version>9.4.12.v20180830</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.httpcomponents</groupId>
+    <artifactId>httpclient</artifactId>
+    <version>4.5</version>
+</dependency>
+
 		
 	</dependencies>
+	
+<repositories>
+	<repository>
+		<id>oss-snapshots-repo</id>
+		<name>Sonatype OSS Maven Repository</name>
+		<url>https://oss.sonatype.org/content/groups/public</url>
+		<snapshots>
+			<enabled>true</enabled>
+			<updatePolicy>always</updatePolicy>
+		</snapshots>
+	</repository>
+</repositories>
 
 	<dependencyManagement>
  		<dependencies>

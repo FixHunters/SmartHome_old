@@ -20,7 +20,7 @@ public class TemperatureHumidity {
 	
 	private static final Logger log = LoggerFactory.getLogger(TemperatureHumidity.class);
 	
-    public  void main() throws Exception {
+    public void main() throws Exception {
 
         final NumberFormat NF = new DecimalFormat("##00.00");
 		BMP180 sensor = new BMP180();

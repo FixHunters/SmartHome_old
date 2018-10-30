@@ -13,7 +13,7 @@
       </counter>
       <counter>
         <item-type type-id="ui-panel" type="UIPanel" />
-        <value>2</value>
+        <value>1</value>
       </counter>
       <counter>
         <item-type type-id="class" type="UmlClass" />
@@ -48,10 +48,6 @@
         <value>2</value>
       </counter>
       <counter>
-        <item-type type-id="" type="DrawingItem" />
-        <value>1</value>
-      </counter>
-      <counter>
         <item-type type-id="collaboration" type="UmlCollaboration" />
         <value>1</value>
       </counter>
@@ -59,31 +55,15 @@
         <item-type type-id="frame" type="UmlFrame" />
         <value>1</value>
       </counter>
-      <counter>
-        <item-type type-id="ui-window" type="UIWindow" />
-        <value>1</value>
-      </counter>
-      <counter>
-        <item-type type-id="ui-tab-control" type="UITabControl" />
-        <value>1</value>
-      </counter>
-      <counter>
-        <item-type type-id="ui-menu" type="UIMenu" />
-        <value>1</value>
-      </counter>
     </entity-names>
     <entity-ids>
-      <counter>
-        <item-type type-id="" type="AbstractElementGroup" />
-        <value>168</value>
-      </counter>
       <counter>
         <item-type type-id="ui-tabs" type="UITabs" />
         <value>3</value>
       </counter>
       <counter>
         <item-type type-id="ui-panel" type="UIPanel" />
-        <value>3</value>
+        <value>2</value>
       </counter>
       <counter>
         <item-type type-id="class" type="UmlClass" />
@@ -153,18 +133,6 @@
         <item-type type-id="universal-connector" type="UniversalConnector" />
         <value>4</value>
       </counter>
-      <counter>
-        <item-type type-id="ui-window" type="UIWindow" />
-        <value>2</value>
-      </counter>
-      <counter>
-        <item-type type-id="ui-tab-control" type="UITabControl" />
-        <value>2</value>
-      </counter>
-      <counter>
-        <item-type type-id="ui-menu" type="UIMenu" />
-        <value>2</value>
-      </counter>
     </entity-ids>
     <diagrams>
       <counter>
@@ -219,15 +187,12 @@
         <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlComponentDiagram</type>
         <value>1</value>
       </counter>
-      <counter>
-        <type>SoftwareIdeasModeler.Core.Diagrams.Other.UserInterfaceDiagram</type>
-        <value>1</value>
-      </counter>
     </diagrams>
     <fields />
   </counters>
   <alias-groups />
   <management uid="md-e9690330792b428692ea0cbbd084ccc0" name="" task-id-sequence="0">
+    <working-schedule uid="ws-626bab43319344aa95b6cbf65be827ae" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
     <persons>
       <person id="Pf46e4fc36e424e229d91e51aac7fb2cb">
         <first-name />
@@ -237,6 +202,7 @@
         <phone-number />
         <description />
         <color>#00000000</color>
+        <working-schedule uid="ws-17a6755a14944d9eb7626ba9aea4b65d" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
       </person>
     </persons>
     <teams />
@@ -337,7 +303,11 @@
                     </definition>
                     <content>
                       <paragraph>
-                        <style />
+                        <style numbering-type="None">
+                          <numbering name="" multi-level="false">
+                            <numbering-level type="None" level="0" format="{0}." />
+                          </numbering>
+                        </style>
                         <p>
                           <t>Componenta
 </t>
@@ -604,41 +574,6 @@
         </meta>
         <abstract-items />
         <layer id="8140b4e3b0c64088a7ae3146c5732935" name="Default" visible="true" enabled="true" locked="false" />
-      </diagram>
-      <diagram type="user-interface" id="p4b5945e3f4614168bf823cb1e5613832_859166707" name="UserInterfaceDiagram1" order-index="10" overview-order-index="8" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-empty-compartments="true" show-special-indicators="false" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-description="false" show-field-description="false" auto-routed-paths="false">
-        <style>
-          <background-color index="1" color="#FFFFFFFF" />
-          <background-color index="2" color="#FFFFFFFF" />
-          <background-type type="solid" />
-        </style>
-        <meta>
-          <authors>
-            <author> </author>
-          </authors>
-          <description />
-          <creation-date>06/09/2018 23:47:16</creation-date>
-          <change-date>06/09/2018 23:48:37</change-date>
-          <revision-count>0</revision-count>
-          <version />
-        </meta>
-        <abstract-items>
-          <item id="di241775838784164212" cid="TBC001" type="ui-tab-control" name="TabControl1" style-class="" visibility="package" change-tracking-state="added" creator="Pf46e4fc36e424e229d91e51aac7fb2cb" creation-date="06/09/2018 23:47:33">
-            <style class="default" />
-            <tab-control>
-              <tabs>
-                <tab id="uit-9d5b6651-503f-4ffe-a1fd-d2e614555435" active="true">Tab1</tab>
-                <tab id="uit-fcb621f6-8f4b-43d9-877f-d7b3a674a9d4">Tab2</tab>
-                <tab id="uit-2da86f40-7fea-46a6-9d84-826fbbf59d56">Tab3</tab>
-              </tabs>
-            </tab-control>
-          </item>
-        </abstract-items>
-        <layer id="46598d6d03a24578b3ea67cd5f685798" name="Default" visible="true" enabled="true" locked="false">
-          <item id="di241775838784164212" iid="39c17d52a9eb4ffdb32c4254fd46d6be" active-container-page="uit-9d5b6651-503f-4ffe-a1fd-d2e614555435" creation-date="06/09/2018 23:47:33" order-index="2" type="ui-tab-control">
-            <layout ax="407" ay="117" awidth="300" aheight="200" x="407" y="117" width="300" height="200" container-layout="simple" />
-            <tab-control active-tab="uit-9d5b6651-503f-4ffe-a1fd-d2e614555435" />
-          </item>
-        </layer>
       </diagram>
     </model>
   </models>

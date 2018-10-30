@@ -11,15 +11,7 @@ import com.vaadin.ui.Label;
  */
 public class ScenesView extends Composite implements View {
 
-	ControlGpioExample controlGpioExample = new ControlGpioExample();
-	
-    public ScenesView() {
-        setCompositionRoot(new Label("This is view Scenes"));
-        try {
-        	controlGpioExample.main();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    }
+	public ScenesView() {
+		setCompositionRoot(new Label("This is view Scenes"));
+	}
 }

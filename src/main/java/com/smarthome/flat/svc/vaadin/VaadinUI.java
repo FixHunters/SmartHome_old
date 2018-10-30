@@ -8,6 +8,7 @@ import com.smarthome.flat.svc.vaadin.menu.DefaultView;
 import com.smarthome.flat.svc.vaadin.menu.NotificationView;
 import com.smarthome.flat.svc.vaadin.menu.ScenesView;
 import com.smarthome.flat.svc.vaadin.menu.StatusView;
+import com.smarthome.flat.svc.vaadin.menu.TestView;
 import com.smarthome.flat.svc.vaadin.menu.RoomsView;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.PushStateNavigation;
@@ -27,6 +28,7 @@ public class VaadinUI extends UI {
 	private ApplicationController controller;
 	
 	private Sensors sensors = new Sensors();
+	
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
@@ -43,8 +45,10 @@ public class VaadinUI extends UI {
         view4.addStyleNames(ValoTheme.BUTTON_LINK, ValoTheme.MENU_ITEM);
         Button view5 = new Button("Notifications", e -> getNavigator().navigateTo("notifications"));
         view5.addStyleNames(ValoTheme.BUTTON_LINK, ValoTheme.MENU_ITEM);
+        Button test = new Button("Test", e -> getNavigator().navigateTo("test"));
+        test.addStyleNames(ValoTheme.BUTTON_LINK, ValoTheme.MENU_ITEM);
 
-        CssLayout menu = new CssLayout(title, view1, view2, view3, view4, view5);
+        CssLayout menu = new CssLayout(title, view1, view2, view3, view4, view5, test);
         menu.addStyleName(ValoTheme.MENU_ROOT);
         menu.setHeight("1000px"); //TODO natvrdo hodnona pre vysku menu
 
@@ -58,23 +62,10 @@ public class VaadinUI extends UI {
         navigator.addView("", DefaultView.class);
         navigator.addView("scenes", ScenesView.class);
         navigator.addView("rooms", RoomsView.class);
-        navigator.addView("status", StatusView.class);
+        navigator.addView("status", new StatusView(controller));
         navigator.addView("notifications", NotificationView.class);
+        navigator.addView("test", new TestView(controller));
         
-        menu.addComponent(new Button("Click save data!",
-			    event -> saveData()));
-        
-        menu.addComponent(new Button("Click select data!",
-			    event -> controller.findAllSensorsData()));
-    }
-    
-    private void saveData() {
-    	sensors.setId(10);
-    	sensors.setHumidity("999");
-    	sensors.setSoil_moisture("989");
-    	sensors.setTemperature("59");
-    	//controller.addSenorData(sensors);
-    	controller.insertMeasuredData(sensors);
-    }
+    }    
 
 }

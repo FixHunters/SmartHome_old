@@ -52,8 +52,8 @@ public class ViewUtils {
 	
 	 public Component showGrid(){
 			final VerticalLayout layout = new VerticalLayout();
-	    	final Grid viewContainer = new Grid();
-	        viewContainer.setSizeFull();
+	    	final Grid viewContainer = new Grid("This is Grid where will be measured data!");
+	        viewContainer.setWidth("500px");
 	        layout.addComponent(viewContainer);
 			return layout;
 	    }

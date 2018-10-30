@@ -85,6 +85,7 @@ public class ControlGpioExample {
 
         // stop all GPIO activity/threads by shutting down the GPIO controller
         // (this method will forcefully shutdown all GPIO monitoring threads and scheduled tasks)
+        gpio.unprovisionPin(pin);
         gpio.shutdown();
 
         System.out.println("Exiting ControlGpioExample");
